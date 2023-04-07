@@ -1,0 +1,40 @@
+
+name: RunTests
+on: push
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+
+    # Service containers to run with `integration-tests`
+    services:
+      # Label used to access the service container
+      nestserver:
+        # Docker Hub image
+        image: nestsim/nest:3.2
+        env:
+          NEST_CONTAINER_MODE: nest-server
+        ports:
+          - 5000:5000
+        options: >-
+          --health-cmd "curl http://localhost:5000"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+
+    steps:
+      - run: env
+      - run: curl http://localhost:5000
+      - run: >
+          echo '{"mpi":false,"nest":"3.2"}' >expected;
+          curl -s http://localhost:5000 | diff -u expected -
+    env:
+      server_version: "3.2"
+
+
+  style-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: pytest
