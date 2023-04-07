@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# NESTServerClient.py
+# nest_client.py
 #
 # This file is part of NEST.
 #
@@ -24,7 +24,7 @@ from werkzeug.exceptions import BadRequest
 
 
 __all__ = [
-    'NESTServerClient',
+    'NESTClient',
 ]
 
 
@@ -35,7 +35,7 @@ def encode(response):
         raise BadRequest(response.text)
 
 
-class NESTServerClient:
+class NESTClient:
 
     def __init__(self, host='localhost', port=52425):
         self.url = 'http://{}:{}/'.format(host, port)

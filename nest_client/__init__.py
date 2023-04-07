@@ -20,4 +20,4 @@
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from .NESTServerClient import *
+from .nest_client import *
