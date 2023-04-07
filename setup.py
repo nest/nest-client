@@ -19,17 +19,16 @@
 # You should have received a copy of the GNU General Public License
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
-# NESTServerClient --- A Client for NEST Server
+# NEST Client -- A client for the NEST Server
 
 from distutils.core import setup
 
-setup(name='NESTServerClient',
+setup(name='NEST Client',
       version='0.1',
-      description=('NESTServerClient sends JSON requests to NEST Server.'),
+      description=('NEST Client sends JSON requests to NEST Server.'),
       author='Sebastian Spreizer',
       author_email='spreizer@web.de',
       url='https://www.nest-simulator.org',
       license='GNU Public License v2 or later',
-      packages=['NESTServerClient', 'NESTServerClient.examples'],
-      package_dir={'NESTServerClient': ''}
+      packages=['nest_client'],
       )
