@@ -9,5 +9,5 @@ The client can either be installed using `python3 setup.py install
 --user` or, as the client is implemented in a single file, by just
 copying the file `nest_client/nest_client.py` to your project.
 
-The directory `examples` holds some examples that demostrate the
+The directory `examples` holds some examples that demonstrate the
 usage of the client.
