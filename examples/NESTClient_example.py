@@ -19,46 +19,46 @@
 # You should have received a copy of the GNU General Public License
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
-from NESTServerClient import NESTServerClient
+from nest_client import NESTClient
 
-print('Running client examples using NEST via NEST Server')
+print("Running client examples using NEST via NEST Server")
 
-# Load NEST Server client
-nestsc = NESTServerClient()
+# Load NEST client
+nestc = NESTClient()
 
 #
 # Use NEST Server API
 #
-print('\n')
-print('Execute script code with NEST Server API')
-print('-' * 20)
+print("\n")
+print("Execute script code with NEST Server API")
+print("-" * 20)
 
 # Reset kernel
-nestsc.ResetKernel()
+nestc.ResetKernel()
 
 # Create nodes
-pg = nestsc.Create("poisson_generator", params={"rate": 6500.})
-neurons = nestsc.Create("iaf_psc_alpha", 100)
-sr = nestsc.Create("spike_recorder")
+pg = nestc.Create("poisson_generator", params={"rate": 6500.0})
+neurons = nestc.Create("iaf_psc_alpha", 100)
+sr = nestc.Create("spike_recorder")
 
 # Connect nodes
-nestsc.Connect(pg, neurons, syn_spec={'weight': 10.})
-nestsc.Connect(neurons[::10], sr)
+nestc.Connect(pg, neurons, syn_spec={"weight": 10.0})
+nestc.Connect(neurons[::10], sr)
 
 # Simulate
-nestsc.Simulate(1000.0)
+nestc.Simulate(1000.0)
 
 # Get events
-n_events = nestsc.GetStatus(sr, 'n_events')[0]
-print('Number of events:', n_events)
+n_events = nestc.GetStatus(sr, "n_events")[0]
+print("Number of events:", n_events)
 
 
 #
 # Use NEST Server exec
 #
-print('\n')
-print('Execute script code from file')
-print('-' * 20)
+print("\n")
+print("Execute script code from file")
+print("-" * 20)
 
-n_events = nestsc.from_file('NESTClient_script.py', 'n_events')['data']
-print('Number of events:', n_events)
+n_events = nestc.from_file("NESTClient_script.py", "n_events")["data"]
+print("Number of events:", n_events)
