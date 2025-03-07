@@ -24,7 +24,7 @@ from nest_client import NESTClient
 print("Running client examples using NEST via NEST Server")
 
 # Load NEST client
-nestc = NESTClient()
+nest = NESTClient()
 
 #
 # Use NEST Server API
@@ -34,22 +34,22 @@ print("Execute script code with NEST Server API")
 print("-" * 20)
 
 # Reset kernel
-nestc.ResetKernel()
+nest.ResetKernel()
 
 # Create nodes
-pg = nestc.Create("poisson_generator", params={"rate": 6500.0})
-neurons = nestc.Create("iaf_psc_alpha", 100)
-sr = nestc.Create("spike_recorder")
+pg = nest.Create("poisson_generator", params={"rate": 6500.0})
+neurons = nest.Create("iaf_psc_alpha", 100)
+sr = nest.Create("spike_recorder")
 
 # Connect nodes
-nestc.Connect(pg, neurons, syn_spec={"weight": 10.0})
-nestc.Connect(neurons[::10], sr)
+nest.Connect(pg, neurons, syn_spec={"weight": 10.0})
+nest.Connect(neurons[::10], sr)
 
 # Simulate
-nestc.Simulate(1000.0)
+nest.Simulate(1000.0)
 
 # Get events
-n_events = nestc.GetStatus(sr, "n_events")[0]
+n_events = nest.GetStatus(sr, "n_events")[0]
 print("Number of events:", n_events)
 
 
@@ -60,5 +60,5 @@ print("\n")
 print("Execute script code from file")
 print("-" * 20)
 
-n_events = nestc.from_file("NESTClient_script.py", "n_events")["data"]
+n_events = nest.from_file("NESTClient_script.py", "n_events")["data"]
 print("Number of events:", n_events)
