@@ -1,0 +1,72 @@
+[project]
+name = "nest-client"
+description = "NEST Client sends JSON requests to NEST Server."
+license = {file = "LICENSE"}
+version = "0.1.1"
+authors = [
+  {name = "Sebastian Spreizer", email = "spreizer@web.de"},
+]
+maintainers = [
+  {name = "Sebastian Spreizer", email = "spreizer@web.de"},
+  {name = "Dennis Terhorst", email = "d.terhorst@fz-juelich.de"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+# keywords = []
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 5 - Stable",
+
+  # Indicate who your project is intended for
+  "Intended Audience :: Science/Research",
+
+  "Topic :: Scientific/Engineering",
+
+  # Pick your license as you wish (see also "license" above)
+  "License :: OSI Approved :: GNU Public License 3.0 or later",
+
+  # Specify the Python versions you support here.
+  "Programming Language :: Python :: 3",
+]
+dynamic = ["dependencies"]
+
+[project.urls]
+repository = "https://github.com/nest/nest_client"
+
+[project.entry-points.console_scripts]
+urlclient = "urlbroker.client:main"
+
+[tool.setuptools]
+package-dir = {"nest_client" = "src"}
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[tool.black]
+line-length = 120
+
+[tool.flake8]
+# This is ignored
+# see discussions around https://github.com/PyCQA/flake8/issues/234
+
+[tool.isort]
+atomic = true
+line_length = 120
+multi_line_output = 3
+profile = "black"
+skip_gitignore = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "--mypy --pylint --pydocstyle --cov --ignore=conda --ignore=venv --ignore=.git --ignore=__pycache__"
+norecursedirs = ".git _build venv tmp*"
+
+[tool.mypy]
+exclude = ".git/, .pytest_cache/, conda/, venv/"
+
+[tool.pydocstyle]
+convention = "numpy"
+add-ignore = "D300"
