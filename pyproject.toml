@@ -31,19 +31,13 @@ classifiers = [
   # Specify the Python versions you support here.
   "Programming Language :: Python :: 3",
 ]
-dynamic = ["dependencies"]
+dependencies = [
+  "requests",
+  "werkzeug",
+]
 
 [project.urls]
 repository = "https://github.com/nest/nest_client"
-
-[project.entry-points.console_scripts]
-urlclient = "urlbroker.client:main"
-
-[tool.setuptools]
-package-dir = {"nest_client" = "src"}
-
-[tool.setuptools.dynamic]
-dependencies = {file = ["requirements.txt"]}
 
 [tool.black]
 line-length = 120
