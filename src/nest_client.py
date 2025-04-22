@@ -19,8 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
-import requests as _requests # noqa
-from werkzeug.exceptions import BadRequest as _BadRequest # noqa
+import requests # noqa
+from werkzeug.exceptions import BadRequest # noqa
 
 
 __all__ = [
@@ -32,7 +32,7 @@ def encode(response):
     if response.ok:
         return response.json()
     elif response.status_code == 400:
-        raise _BadRequest(response.text)
+        raise BadRequest(response.text)
 
 
 class NESTClient:
@@ -44,7 +44,7 @@ class NESTClient:
     def __getattr__(self, call):
         def method(*args, **kwargs):
             kwargs.update({'args': args})
-            response = _requests.post(self.url + 'api/' + call, json=kwargs, headers=self.headers)
+            response = requests.post(self.url + 'api/' + call, json=kwargs, headers=self.headers)
             return encode(response)
         return method
 
@@ -53,7 +53,7 @@ class NESTClient:
             'source': source,
             'return': return_vars,
         }
-        response = _requests.post(self.url + 'exec', json=params, headers=self.headers)
+        response = requests.post(self.url + 'exec', json=params, headers=self.headers)
         return encode(response)
 
     def from_file(self, filename, return_vars=None):
