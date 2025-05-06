@@ -6,11 +6,11 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
 authors = [
-  {name = "Sebastian Spreizer", email = "spreizer@web.de"},
-  {name = "Dennis Terhorst", email = "d.terhorst@fz-juelich.de"}
+  {name = "Dennis Terhorst"},
+  {name = "Jochen M. Eppler"},
+  {name = "Sebastian Spreizer"},
 ]
 maintainers = [
-  {name = "Sebastian Spreizer", email = "spreizer@web.de"},
   {name = "Dennis Terhorst", email = "d.terhorst@fz-juelich.de"}
 ]
 # keywords = []
