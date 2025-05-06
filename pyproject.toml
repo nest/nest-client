@@ -1,17 +1,18 @@
 [project]
 name = "nest-client"
-description = "NEST Client sends JSON requests to NEST Server."
-license = {file = "LICENSE"}
 version = "0.1.1"
+description = "NEST Client sends JSON requests to NEST Server."
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
 authors = [
   {name = "Sebastian Spreizer", email = "spreizer@web.de"},
+  {name = "Dennis Terhorst", email = "d.terhorst@fz-juelich.de"}
 ]
 maintainers = [
   {name = "Sebastian Spreizer", email = "spreizer@web.de"},
   {name = "Dennis Terhorst", email = "d.terhorst@fz-juelich.de"}
 ]
-readme = "README.md"
-requires-python = ">=3.9"
 # keywords = []
 classifiers = [
   # How mature is this project? Common values are
@@ -37,7 +38,9 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "https://github.com/nest/nest_client"
+homepage = "https://nest-simulator.org"
+repository = "https://github.com/nest/nest-client"
+documentation = "https://nest-simulator.readthedocs.io"
 
 [tool.black]
 line-length = 120
