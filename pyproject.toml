@@ -4,7 +4,7 @@ version = "0.1.1"
 description = "NEST Client sends JSON requests to NEST Server."
 readme = "README.md"
 requires-python = ">=3.9"
-license = {file = "LICENSE"}
+license-files = ["LICENSE"]
 authors = [
   {name = "Dennis Terhorst"},
   {name = "Jochen M. Eppler"},
