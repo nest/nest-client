@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# setup.py
+# __init__.py
 #
 # This file is part of NEST.
 #
@@ -19,16 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
-# NEST Client -- A client for the NEST Server
 
-from distutils.core import setup
+from importlib import metadata # noqa
+from .nest_client import * # noqa
 
-setup(name='NEST Client',
-      version='0.1',
-      description=('NEST Client sends JSON requests to NEST Server.'),
-      author='Sebastian Spreizer',
-      author_email='spreizer@web.de',
-      url='https://www.nest-simulator.org',
-      license='GNU Public License v2 or later',
-      packages=['nest_client'],
-      )
+try:
+    __version__ = metadata.version("nest-client")
+except metadata.PackageNotFoundError:
+    pass
+
+del metadata
