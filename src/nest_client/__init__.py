@@ -20,8 +20,12 @@
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
 
-from importlib import metadata as _metadata # noqa
+from importlib import metadata # noqa
 from .nest_client import * # noqa
 
-__version__ = _metadata.version("nest-client")
-del _metadata
+try:
+    __version__ = metadata.version("nest-client")
+except metadata.PackageNotFoundError:
+    pass
+
+del metadata
