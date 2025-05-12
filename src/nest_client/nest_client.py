@@ -19,8 +19,8 @@
 # You should have received a copy of the GNU General Public License
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
-import requests
-from werkzeug.exceptions import BadRequest
+import requests # noqa
+from werkzeug.exceptions import BadRequest # noqa
 
 
 __all__ = [
