@@ -1,6 +1,6 @@
 [project]
 name = "nest-client"
-version = "0.2.0b2"
+version = "0.2.0b3"
 description = "A Python-based client for the NEST Server"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -48,7 +48,7 @@ documentation = "https://nest-simulator.readthedocs.io"
 
 [project.optional-dependencies]
 server = [
-  "nest-server>=3.0.0b2",
+  "nest-server>=3.0.0b4",
 ]
 
 [dependency-groups]

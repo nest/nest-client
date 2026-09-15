@@ -17,6 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
+from collections.abc import Callable
 from pathlib import Path
 
 import requests
@@ -50,7 +51,7 @@ class NESTClient:
     def post(self, path: str, *args, **kwargs):
         return self.session.post(f"{self.url}{path}", *args, **kwargs)
 
-    def __getattr__(self, call: str):
+    def __getattr__(self, call: str) -> Callable:
         def method(*args, **kwargs):
             return self.api_call(call, args, kwargs)
 
@@ -77,7 +78,7 @@ class NESTClient:
         response = self.post("/exec", json=params)
         return encode(response)
 
-    def from_file(self, filename: str | Path, return_vars: str | list[str] | None = None):
+    def from_file(self, filename: Path | str, return_vars: str | list[str] | None = None):
         with open(filename) as f:
             lines = f.readlines()
         script = "".join(lines)
