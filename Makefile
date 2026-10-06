@@ -28,6 +28,9 @@ format:
 clean:
 	rm -rf .pytest_cache .ruff_cache .venv .venv-* dist *.egg-info htmlcov .coverage
 
+lock-upgrade:
+	uv lock --upgrade && uv sync
+
 test-all: $(TEST_PY_TARGETS)
 
 test-py%:
