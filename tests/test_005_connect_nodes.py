@@ -1,6 +1,6 @@
 from random import randint
 
-from helpers import has_ids, repeat
+from test_000_helpers import has_ids, repeat
 
 size = randint(2, 5)
 
