@@ -23,5 +23,3 @@ repos:
     rev: v0.0.78
     hooks:
       - id: ty
-
-exclude: 'build/.*|.venv*/.*'
