@@ -33,7 +33,7 @@ jobs:
 
     services:
       nest-server:
-        # image: nest/nest-simulator:3.10
+        # image: nest/nest-simulator:3.11
         image: docker-registry.ebrains.eu/nest/nest-simulator:dev
         env:
           NEST_CONTAINER_MODE: nest-server
@@ -67,7 +67,7 @@ jobs:
 
     services:
       nest-server:
-        # image: nest/nest-simulator:3.10
+        # image: nest/nest-simulator:3.11
         image: docker-registry.ebrains.eu/nest/nest-simulator:dev
         env:
           NEST_CONTAINER_MODE: nest-server
