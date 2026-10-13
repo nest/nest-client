@@ -1,4 +1,4 @@
-PYTHON_VERSIONS := 3.10 3.11 3.12 3.13 3.14
+PYTHON_VERSIONS := 3.10 3.11 3.12 3.13 3.14 3.15
 TEST_PY_TARGETS := $(addprefix test-py,$(PYTHON_VERSIONS))
 
 .PHONY: sync pre-commit test test-mpi coverage lint format clean test-all
