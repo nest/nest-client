@@ -82,5 +82,5 @@ jobs:
       - name: Install the project
         run: uv sync
 
-      - name: Run pytest for multiple Python versions
+      - name: Run pytest
         run: uv run pytest
