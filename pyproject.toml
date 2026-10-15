@@ -49,7 +49,7 @@ documentation = "https://nest-simulator.readthedocs.io"
 
 [project.optional-dependencies]
 server = [
-  "nest-server>=3.0.0b4",
+  "nest-server>=3.0.0b8",
 ]
 
 [dependency-groups]
