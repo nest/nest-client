@@ -39,7 +39,7 @@ jobs:
       - name: Run pytest with coverage
         run: |
           uv run coverage run --source=./src/nest_client -m pytest
-          uv run coverage report
+          uv run coverage report --format=markdown > $GITHUB_STEP_SUMMARY
 
   pytest:
     runs-on: ubuntu-latest
