@@ -127,23 +127,12 @@ print("Number of events:", n_events)
 
 ## NEST Client API
 
-- ```NESTClient```
-
-    The client object to interact with the NEST Server
-
-- ```NESTClient.<call>(*args, **kwargs)```
-
-    Execute a PyNEST function ```<call>``` on the NEST Server; the arguments ```args``` and ```kwargs``` will be
-    forwarded to the function
-
-- ```NESTClient.exec_script(source, return_vars=None)```
-
-    Execute a Python script on the NEST Server; the script has to be given as a string in the ```source``` argument
-
-- ```NESTClient.from_file(filename, return_vars=None)```
-
-    Execute a Python script on the NEST Server; the argument ```filename``` is the name of the file in which the script
-    is stored
+| Call | Description |
+| ---- | ----------- |
+| ```NESTClient``` |  The client object to interact with the NEST Server |
+| ```NESTClient.<call>(*args, **kwargs)``` | Execute a PyNEST function ```<call>``` on the NEST Server; the arguments ```args``` and ```kwargs``` will be forwarded to the function |
+| ```NESTClient.exec_script(source, return_vars=None)``` | Execute a Python script on the NEST Server; the script has to be given as a string in the ```source``` argument |
+| ```NESTClient.from_file(filename, return_vars=None)``` | Execute a Python script on the NEST Server; the argument ```filename``` is the name of the file in which the script is stored |
 
 ## Development mode
 
