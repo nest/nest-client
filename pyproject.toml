@@ -53,10 +53,10 @@ server = [
 
 [dependency-groups]
 dev = [
-  "coverage>=7.16",
-  "pre-commit>=4.6",
+  "coverage>=7.17",
+  "pre-commit>=4.7",
   "pytest>=9.1",
-  "ruff>=0.16",
+  "ruff>=0.17",
   "ty>=0.0",
 ]
 
