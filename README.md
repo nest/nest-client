@@ -122,7 +122,7 @@ print("Number of events:", n_events)
 >
 > By default, the NEST Server only imports the PyNEST module during startup for security reasons. In case you require
 > additional Python modules for your simulation script, please see
-> [NEST Server](https://github.org/nest/nest-server#security-considerations).
+> [NEST Server](https://github.com/nest/nest-server#security-considerations).
 
 
 ## NEST Client API
