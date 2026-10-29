@@ -13,13 +13,13 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.17.3
+    rev: v0.17.2 # Has to be same as in uv.lock
     hooks:
       - id: ruff-check
         args: [--fix]
       - id: ruff-format
 
   - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.0.94
+    rev: v0.0.92 # Has to be same as in uv.lock
     hooks:
       - id: ty
