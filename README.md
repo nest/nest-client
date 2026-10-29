@@ -49,8 +49,7 @@ nest.Connect(neurons[::10], sr)
 nest.Simulate(1000)
 
 # Get events
-n_events = nest.GetStatus(sr, "n_events")
-print("Number of events:", n_events)
+print("Number of events:", sr.n_events)
 ```
 
 </td>
@@ -78,7 +77,8 @@ nest.Connect(neurons[::10], sr)
 nest.Simulate(1000)
 
 # Get events
-print("Number of events:", sr.n_events)
+n_events = nest.GetStatus(sr, "n_events")
+print("Number of events:", n_events)
 ```
 </td>
 </tr>
