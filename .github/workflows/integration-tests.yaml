@@ -1,0 +1,40 @@
+name: Integration Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  integration-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      nest-server:
+        # image: nest/nest-simulator:3.11
+        image: docker-registry.ebrains.eu/nest/nest-simulator:dev
+        env:
+          NEST_CONTAINER_MODE: nest-server
+        ports:
+          - 52425:52425
+        options: >-
+          --health-cmd "curl http://localhost:52425"
+          --health-interval 5s
+          --health-timeout 3s
+          --health-retries 5
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+
+      - name: Install the project
+        run: uv sync --no-install-package nest-server
+
+      - name: Run integration test
+        run: uv run pytest ./tests/integration
