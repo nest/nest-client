@@ -16,7 +16,7 @@ test-mpi:
 	uv run pytest -v -m 'not not_mpi'
 
 coverage:
-	uv run coverage run --source=./src/nest_client -m pytest
+	uv run coverage run --source=./src/nest_client -m pytest ./tests/unit
 	uv run coverage report
 
 lint:

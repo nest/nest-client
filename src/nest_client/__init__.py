@@ -18,7 +18,6 @@
 # along with NEST.  If not, see <http://www.gnu.org/licenses/>.
 
 
-import contextlib
 from importlib import metadata
 
 from nest_client.main import NESTClient  # noqa
@@ -26,6 +25,6 @@ from nest_client.main import NESTClient  # noqa
 try:
     __version__ = metadata.version("nest-client")
 except metadata.PackageNotFoundError:
-    contextlib.suppress(metadata.PackageNotFoundError)
+    __version__ = "unknown"
 
 del metadata
